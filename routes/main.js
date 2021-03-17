@@ -12,7 +12,6 @@ const path = require("path");
 router.get("/:file", async (req, res) => {
     try { 
         const file = req.params.file.split(".")[0];
-        console.log(file)
         if (!file)
             return res.redirect(`${process.env.REDIRECT_URL}`);
         // Check uploads exists

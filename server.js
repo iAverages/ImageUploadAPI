@@ -2,6 +2,7 @@ const express = require("express");
 const fileupload = require("express-fileupload")
 const helmet = require("helmet");
 const cors = require("cors");
+const morgan = require('morgan');
 const log = require("./helpers/logger");
 const app = express();
 require("dotenv").config()
@@ -19,7 +20,8 @@ const middleware = [
     }),
     helmet(),
     express.json(),
-    cors()
+    cors(),
+    morgan("combined"),
 ]
 
 app.use(middleware);

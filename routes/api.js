@@ -26,13 +26,19 @@ router.post("/upload", async (req, res) => {
     const uploadPath = path.resolve(uploads + name + ext);
     try {
         await moveFile(file, uploadPath);
+        log.success(`File ${name + ext} uploaded.`)
+        res.json({
+            success: true,
+            url:  domain + name
+        })
     } catch(e) {
-        console.log(e);
+        log.error(e);
+        res.json({
+            success: false,
+            message: "An error occured while uploading the imgae."
+        })
+        return;
     }
-    res.json({
-        success: true,
-        url:  domain + name
-    })
 })
 
 router.post("/delete/:file", async (req, res) => { 
@@ -45,16 +51,18 @@ router.post("/delete/:file", async (req, res) => {
     try {
         const fileLocal = await readFile(path.resolve(uploads + `${file}.*`));
         fs.unlinkSync(fileLocal[0])
+        log.success(`${file} deleted.`)
         return res.send({
             success: true,
             message: `Successfully deleted ${file}`
         })
     } catch (e) {
-        console.log(e)
+        log.error(e)
         return res.status(404).json({
             success: false,
             message: "No file to delete",
         })
     }
 })
+
 module.exports = router;

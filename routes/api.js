@@ -29,7 +29,7 @@ router.post("/upload", async (req, res) => {
         log.success(`File ${name + ext} uploaded.`)
         res.json({
             success: true,
-            url:  domain + name
+            url:  domain + name + (ext == ".mp4" ? ".mp4" : "")
         })
     } catch(e) {
         log.error(e);

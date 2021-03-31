@@ -30,7 +30,7 @@ router.post("/upload", async (req, res) => {
         log.success(`File ${name + ext} uploaded.`)
         res.json({
             success: true,
-            url:  domain + name + (removeExt.has(`.${ext}`) ? "" : ext),
+            url:  domain + name + (removeExt.has(ext.substring(1)) ? "" : ext),
         })
     } catch(e) {
         log.error(e);

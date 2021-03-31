@@ -10,6 +10,7 @@ const glob = require("glob");
 const readFile = util.promisify(glob);
 const uploads = `${__dirname}/../${process.env.UPLOADS}/`;
 const domain = process.env.DOMAIN.endsWith("/") ? process.env.DOMAIN : process.env.DOMAIN + "/";
+const removeExt = new Set([ "png", "jpg", "gif", "webp" ]);
 
 router.use((req, res, next) => {
     if (!req.headers.key || req.headers.key != process.env.KEY) 
@@ -29,7 +30,7 @@ router.post("/upload", async (req, res) => {
         log.success(`File ${name + ext} uploaded.`)
         res.json({
             success: true,
-            url:  domain + name + (ext == ".mp4" ? ".mp4" : "")
+            url:  domain + name + (removeExt.has(ext) ? "" : ext),
         })
     } catch(e) {
         log.error(e);

@@ -1,5 +1,3 @@
-const fs = require("fs");
-
 module.exports = async (file, newPath) => {
     return new Promise((resolve, reject) => {
         try {

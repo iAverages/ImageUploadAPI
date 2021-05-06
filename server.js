@@ -12,16 +12,26 @@ require("dotenv").config()
 const port = process.env.PORT || 3000;
 const main = require("./routes/main");
 const api = require("./routes/api");
+const rateLimitStore = new mongoStore({
+    uri: process.env.MONGO_URI,
+    user: process.env.MONGO_USER,
+    password: process.env.MONGO_PASSWORD
+})
+
 const apiLimiter = rateLimit({
+    windowMs: 1000 * 60,
+    max: 10,
+    message: "Stop requesting my shit.",
+    store: rateLimitStore
+})
+
+const requestLimiter = rateLimit({
     windowMs: 1000 * 60 * 10,
     max: 20,
     message: "Stop requesting my shit.",
-    store: new mongoStore({
-        uri: process.env.MONGO_URI,
-        user: process.env.MONGO_USER,
-        password: process.env.MONGO_PASSWORD
-    })
+    store: rateLimitStore
 })
+
 const middleware = [
     fileupload({
         preserveExtension: true,
@@ -38,7 +48,7 @@ const middleware = [
 
 app.set("trust proxy", "loopback");
 app.use(middleware);
-app.use("/", main);
+app.use("/", requestLimiter, main);
 app.use("/api", apiLimiter, api);
 app.use((req,res) => {
     if (process.env.REDIRECT_URL)

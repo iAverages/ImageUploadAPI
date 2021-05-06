@@ -40,5 +40,14 @@ app.set("trust proxy", "loopback");
 app.use(middleware);
 app.use("/", main);
 app.use("/api", apiLimiter, api);
+app.use((req,res) => {
+    if (process.env.REDIRECT_URL)
+        res.redirect(process.env.REDIRECT_URL)
+    else 
+        res.status(404).json({
+            success: false,
+            message: "Not found"
+        })
+})
 
 app.listen(port, () => log.info(`Server started, listening on port ${port}`));

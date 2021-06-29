@@ -1,34 +1,35 @@
 {
-  "name": "imageuploadapi",
-  "version": "1.0.0",
-  "description": "Image upload API",
-  "main": "server.js",
-  "scripts": {
-    "dev": "nodemon .",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/iAverages/ImageUploadAPI.git"
-  },
-  "author": "dan.#0402",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/iAverages/ImageUploadAPI/issues"
-  },
-  "homepage": "https://github.com/iAverages/ImageUploadAPI#readme",
-  "dependencies": {
-    "axios": "^0.21.1",
-    "colors": "^1.4.0",
-    "cors": "^2.8.5",
-    "dotenv": "^8.2.0",
-    "express": "^4.17.1",
-    "express-fileupload": "^1.2.1",
-    "express-rate-limit": "^5.2.6",
-    "glob": "^7.1.6",
-    "helmet": "^4.4.1",
-    "morgan": "^1.10.0",
-    "nanoid": "^3.1.22",
-    "rate-limit-mongo": "^2.3.1"
-  }
+    "name": "imageuploadapi",
+    "version": "1.0.0",
+    "description": "Image upload API",
+    "main": "server.js",
+    "scripts": {
+        "start": "node server.js",
+        "dev": "nodemon .",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/iAverages/ImageUploadAPI.git"
+    },
+    "author": "dan.#0402",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/iAverages/ImageUploadAPI/issues"
+    },
+    "homepage": "https://github.com/iAverages/ImageUploadAPI#readme",
+    "dependencies": {
+        "axios": "^0.21.1",
+        "colors": "^1.4.0",
+        "cors": "^2.8.5",
+        "dotenv": "^8.2.0",
+        "express": "^4.17.1",
+        "express-fileupload": "^1.2.1",
+        "express-rate-limit": "^5.2.6",
+        "glob": "^7.1.6",
+        "helmet": "^4.4.1",
+        "morgan": "^1.10.0",
+        "nanoid": "^3.1.22",
+        "rate-limit-mongo": "^2.3.1"
+    }
 }

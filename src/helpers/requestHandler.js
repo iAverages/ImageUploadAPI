@@ -1,4 +1,4 @@
-const format = (res, status = 200, message, data) => {
+const format = (res, status, message, data) => {
     // Construct the return json
     const json = { success: status < 400 };
     if (message) json.message = message;

@@ -2,7 +2,7 @@ const format = (res, status, message, data) => {
     // Construct the return json
     const json = { success: status < 400 };
     if (message) json.message = message;
-    if (data && data.length > 0) json.data = data;
+    if (data && (!data.length || data.length > 0)) json.data = data;
 
     res.status(status).json(json);
 };

@@ -58,3 +58,10 @@ app.use((_, res) => {
 });
 
 app.listen(port, "0.0.0.0", () => log.info(`Server started, listening on port ${port}`));
+
+["SIGINT", "SIGTERM", "SIGQUIT"].forEach((sig) => {
+    process.on(sig, () => {
+        log.success("Shutting down...");
+        process.exit(0);
+    });
+});

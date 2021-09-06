@@ -20,7 +20,7 @@
     "homepage": "https://github.com/iAverages/ImageUploadAPI#readme",
     "dependencies": {
         "@iaverage/logger": "^1.0.2",
-        "axios": "^0.21.1",
+        "axios": "^0.21.3",
         "colors": "^1.4.0",
         "cors": "^2.8.5",
         "dotenv": "^8.2.0",

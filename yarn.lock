@@ -394,10 +394,10 @@ minimatch@^3.0.4:
   dependencies:
     brace-expansion "^1.1.7"
 
-"mongodb@>= 3.3.4 < 4.0.0":
-  version "3.6.10"
-  resolved "https://registry.yarnpkg.com/mongodb/-/mongodb-3.6.10.tgz#f10e990113c86b195c8af0599b9b3a90748b6ee4"
-  integrity sha512-fvIBQBF7KwCJnDZUnFFy4WqEFP8ibdXeFANnylW19+vOwdjOAvqIzPdsNCEMT6VKTHnYu4K64AWRih0mkFms6Q==
+mongodb@^3.6.7:
+  version "3.7.1"
+  resolved "https://registry.yarnpkg.com/mongodb/-/mongodb-3.7.1.tgz#492afe1e870eb11b2d98f7e302146d176bda1ed4"
+  integrity sha512-iSVgexYr8ID0ieeNFUbRfQeOZxOchRck6kEDVySQRaa8VIw/1Pm+/LgcpZcl/BWV6nT0L8lP9qyl7dRPJ6mnLw==
   dependencies:
     bl "^2.2.1"
     bson "^1.1.4"
@@ -505,12 +505,12 @@ range-parser@~1.2.1:
   resolved "https://registry.yarnpkg.com/range-parser/-/range-parser-1.2.1.tgz#3cf37023d199e1c24d1a55b84800c2f3e6468031"
   integrity sha512-Hrgsx+orqoygnmhFbKaHE6c296J+HTAQXoxEF6gNupROmmGJRoyzfG3ccAveqCBrwr/2yxQ5BVd/GTl5agOwSg==
 
-rate-limit-mongo@^2.3.1:
-  version "2.3.1"
-  resolved "https://registry.yarnpkg.com/rate-limit-mongo/-/rate-limit-mongo-2.3.1.tgz#e9682e72e12e3ce52d80128c090480a4d90065e4"
-  integrity sha512-sl0T3G6aB6hgawZldDlvDZ8vi2tIxbcpk/N1WdI4jsS1/FqdDF92jKeCQiE8Oq7kDSsU+jFT142GE6HfKWKrUw==
+rate-limit-mongo@^2.3.2:
+  version "2.3.2"
+  resolved "https://registry.yarnpkg.com/rate-limit-mongo/-/rate-limit-mongo-2.3.2.tgz#6918e35606f4eeabf46e508dd3b60548057c323b"
+  integrity sha512-dLck0j5N/AX9ycVHn5lX9Ti2Wrrwi1LfbXitu/mMBZOo2nC26RgYKJVbcb2mYgb9VMaPI2IwJVzIa2hAQrMaDA==
   dependencies:
-    mongodb ">= 3.3.4 < 4.0.0"
+    mongodb "^3.6.7"
     twostep "0.4.2"
     underscore "1.12.1"
 
